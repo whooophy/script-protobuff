@@ -4,16 +4,8 @@ option go_package="github.com/whooophy/script-protobuff;proto";
 
 package user;
 
-//Request Payload
-message GreetingRequest{
-  string name = 1;
-  string salutation = 2;
-}
 
-//Response Payload
-message GreetingResponse{
-  string GreetingMessage = 1;
-}
+
 
 message GetUserRequest{
   int64 id = 1;
@@ -38,7 +30,6 @@ message CreateUserResponse{
 
 //Define RPC service
 service UserService{
-  rpc GreetUser(GreetingRequest) returns (GreetingResponse);
   rpc GetUser(GetUserRequest) returns (GetUserResponse);
   rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
 }
