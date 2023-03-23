@@ -1,11 +1,7 @@
 syntax="proto3";
 
-//Definisi Package di Golang. Ketika
-//protobuf digenerate, maka akan mengikuti struktur folder
-//berikut
 option go_package="github.com/whooophy/script-protobuff;proto";
 
-//Definisi package
 package user;
 
 //Request Payload
@@ -30,8 +26,19 @@ message GetUserResponse{
   string user_type = 4;
 }
 
+message CreateUserRequest{
+  string username =1;
+  string password =2;
+  string email=3;
+}
+
+message CreateUserResponse{
+  string messages=1;
+}
+
 //Define RPC service
 service UserService{
   rpc GreetUser(GreetingRequest) returns (GreetingResponse);
   rpc GetUser(GetUserRequest) returns (GetUserResponse);
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
 }
