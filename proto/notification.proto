@@ -15,6 +15,6 @@ message SendEmailResponse{
 }
 
 //Define RPC service
-service UserService{
-  rpc GetUser(SendEmailRequest) returns (SendEmailResponse);
+service NotificationService{
+  rpc SendEmail(SendEmailRequest) returns (SendEmailResponse);
 }
